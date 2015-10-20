@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "8.0"
 
 
-  s.source       = { :git => "https://github.com/Yalantis/StarWars.iOS", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com/Yalantis/StarWars.iOS.git", :tag => s.version.to_s }
   s.source_files = "StarWars/StarWarsGLAnimator/*.swift"
   s.module_name  = "StarWars"
   s.requires_arc = true
