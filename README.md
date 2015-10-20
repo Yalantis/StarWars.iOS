@@ -41,6 +41,15 @@ func animationControllerForDismissedController(dismissed: UIViewController) -> U
 }
 ```
 
+There are also two things you can customize in the Star Wars animation: duration and sprite sizes. 
+Let’s see how you can do this:
+
+```swift
+let animator = StarWarsGLAnimator()
+animator.duration = 2
+animator.spriteWidth = 8
+```
+
 Have fun! :)
 
 ## License

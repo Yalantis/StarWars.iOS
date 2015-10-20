@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name         = "StarWars"
   s.version      = "1.0"
-  s.summary      = "This component implements transition animation to provide for view controller blow effect on dismiss"
+  s.summary      = "This component implements transition animation to crumble view-controller into tiny pieces"
 
   s.homepage     = "https://yalantis.com/blog/uidynamics-uikit-or-opengl-3-types-of-ios-animations-for-the-star-wars/"
 
