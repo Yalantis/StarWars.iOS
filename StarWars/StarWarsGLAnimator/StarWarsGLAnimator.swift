@@ -15,7 +15,7 @@ public class StarWarsGLAnimator: NSObject, UIViewControllerAnimatedTransitioning
     public var spriteWidth: CGFloat = 8
     
     
-    private var sprites: [BlowSprite] = []
+    private var sprites: [Sprite] = []
     private var glContext: EAGLContext!
     private var texture: ViewTexture!
     private var effect: GLKBaseEffect!
@@ -25,7 +25,7 @@ public class StarWarsGLAnimator: NSObject, UIViewControllerAnimatedTransitioning
     private var lastUpdateTime: NSTimeInterval?
     private var startTransitionTime: NSTimeInterval!
     private var transitionContext: UIViewControllerContextTransitioning!
-    private var render: BlowSpriteRender!
+    private var render: SpriteRender!
     
     public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return self.duration
@@ -62,7 +62,7 @@ public class StarWarsGLAnimator: NSObject, UIViewControllerAnimatedTransitioning
         let projectionMatrix = GLKMatrix4MakeOrtho(0, Float(texture.width), 0, Float(texture.height), -1, 1)
         effect.transform.projectionMatrix = projectionMatrix
         
-        render = BlowSpriteRender(texture: texture, effect: effect)
+        render = SpriteRender(texture: texture, effect: effect)
         
         let size = CGSize(width: CGFloat(texture.width), height: CGFloat(texture.height))
         
@@ -73,7 +73,7 @@ public class StarWarsGLAnimator: NSObject, UIViewControllerAnimatedTransitioning
         for x in CGFloat(0).stride(through: size.width, by: width) {
             for y in CGFloat(0).stride(through: size.height, by: height) {
                 let region = CGRect(x: x, y: y, width: width, height: height)
-                var sprite = BlowSprite()
+                var sprite = Sprite()
                 sprite.slice(region, textureSize: size)
                 sprite.moveVelocity = Vector2(x: randomFloatBetween(-100, and: 100), y: randomFloatBetween(-CGFloat(texture.height)*1.3/CGFloat(duration), and: -CGFloat(texture.height)/CGFloat(duration)))
 

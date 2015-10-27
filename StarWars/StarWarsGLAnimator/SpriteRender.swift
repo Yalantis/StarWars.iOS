@@ -8,7 +8,7 @@
 
 import GLKit
 
-class BlowSpriteRender {
+class SpriteRender {
     
     private let texture: ViewTexture
     private let effect: GLKBaseEffect
@@ -18,7 +18,7 @@ class BlowSpriteRender {
         self.effect = effect
     }
     
-    func render(sprites: [BlowSprite]) {
+    func render(sprites: [Sprite]) {
         effect.texture2d0.name = self.texture.name
         effect.texture2d0.enabled = 1
         

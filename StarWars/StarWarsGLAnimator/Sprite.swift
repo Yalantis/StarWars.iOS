@@ -25,7 +25,7 @@ struct TexturedQuad {
     private var _tl = TexturedVertex()
 }
 
-struct BlowSprite {
+struct Sprite {
     var quad = TexturedQuad()
     var moveVelocity = Vector2()
     
