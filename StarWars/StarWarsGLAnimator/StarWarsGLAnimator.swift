@@ -17,9 +17,7 @@ public class StarWarsGLAnimator: NSObject, UIViewControllerAnimatedTransitioning
     
     private var sprites: [Sprite] = []
     private var glContext: EAGLContext!
-    private var texture: ViewTexture!
     private var effect: GLKBaseEffect!
-    private var fromView: UIView!
     private var glView: GLKView!
     private var displayLink: CADisplayLink!
     private var lastUpdateTime: NSTimeInterval?
@@ -54,7 +52,7 @@ public class StarWarsGLAnimator: NSObject, UIViewControllerAnimatedTransitioning
         glView.opaque = false
         containerView.addSubview(glView)
 
-        texture = ViewTexture()
+        let texture = ViewTexture()
         texture.setupOpenGL()
         texture.renderView(fromView)
         
