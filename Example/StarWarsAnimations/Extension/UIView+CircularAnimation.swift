@@ -21,7 +21,7 @@ extension UIView {
             let y = max(center.y, frame.height - center.y)
             return sqrt(x * x + y * y)
         }()
-        let animation = CircularRevealAnimator(layer: snapshot.layer, center: center, startRadius: 0, endRadius: radius, invert: true)
+        let animation = CircularRevealAnimator(layer: snapshot.layer, center: center, startRadius: 0, endRadius: radius, invert: false)
         animation.duration = duration
         animation.completion = {
             snapshot.removeFromSuperview()
