@@ -31,7 +31,7 @@ class CircularRevealAnimator {
         let startCirclePath = CGPathCreateWithEllipseInRect(SquareAroundCircle(center, radius: startRadius), UnsafePointer())
         let endCirclePath = CGPathCreateWithEllipseInRect(SquareAroundCircle(center, radius: endRadius), UnsafePointer())
         
-        var startPath = endCirclePath, endPath = startCirclePath
+        var startPath = startCirclePath, endPath = endCirclePath
         if invert {
             var path = CGPathCreateMutable()
             CGPathAddRect(path, nil, layer.bounds)
