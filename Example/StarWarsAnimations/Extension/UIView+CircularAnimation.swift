@@ -10,7 +10,7 @@ import UIKit
 
 extension UIView {
     
-    func animateCircularWithDuration(duration: NSTimeInterval, center: CGPoint, @noescape animations: () -> Void, completion: ((Bool) -> Void)? = nil) {
+    func animateCircularWithDuration(duration: NSTimeInterval, center: CGPoint, revert: Bool = false, @noescape animations: () -> Void, completion: ((Bool) -> Void)? = nil) {
         let snapshot = self.snapshotViewAfterScreenUpdates(false)
         snapshot.frame = self.bounds
         self.addSubview(snapshot)
@@ -21,7 +21,12 @@ extension UIView {
             let y = max(center.y, frame.height - center.y)
             return sqrt(x * x + y * y)
         }()
-        let animation = CircularRevealAnimator(layer: snapshot.layer, center: center, startRadius: 0, endRadius: radius, invert: true)
+        var animation : CircularRevealAnimator
+        if !revert {
+            animation = CircularRevealAnimator(layer: snapshot.layer, center: center, startRadius: 0, endRadius: radius, invert: true)
+        } else {
+            animation = CircularRevealAnimator(layer: snapshot.layer, center: center, startRadius: radius, endRadius: 0, invert: false)
+        }
         animation.duration = duration
         animation.completion = {
             snapshot.removeFromSuperview()

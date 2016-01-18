@@ -42,6 +42,7 @@ class CircularRevealAnimator {
             CGPathAddPath(path, nil, endCirclePath)
             endPath = path
         }
+        
         self.layer = layer
 
         mask = CAShapeLayer()
