@@ -63,7 +63,7 @@ extension Vector2 : Equatable {
         return x.isFinite && y.isFinite
     }
 
-    func distance(other: Vector2) -> Float32 {
+    func distance(_ other: Vector2) -> Float32 {
         
         let result = self - other;
         return sqrt( result.dot(result) )
@@ -87,12 +87,12 @@ extension Vector2 : Equatable {
         return sqrtf( x*x + y*y )
     }
     
-    func dot( v: Vector2 ) -> Float32 {
+    func dot( _ v: Vector2 ) -> Float32 {
         
         return x * v.x + y * v.y
     }
     
-    mutating func lerp( a: Vector2, b: Vector2, coef : Float32) {
+    mutating func lerp( _ a: Vector2, b: Vector2, coef : Float32) {
         
         let result = a + ( b - a) * coef
         
@@ -146,22 +146,22 @@ func - (left: Vector2, right: Float32) -> Vector2 {
     return Vector2(x:left.x - right, y:left.y - right)
 }
 
-func += (inout left: Vector2, right: Vector2) {
+func += (left: inout Vector2, right: Vector2) {
     
     left = left + right
 }
 
-func -= (inout left: Vector2, right: Vector2) {
+func -= (left: inout Vector2, right: Vector2) {
     
     left = left - right
 }
 
-func *= (inout left: Vector2, right: Vector2) {
+func *= (left: inout Vector2, right: Vector2) {
     
     left = left * right
 }
 
-func /= (inout left: Vector2, right: Vector2) {
+func /= (left: inout Vector2, right: Vector2) {
     
     left = left / right
 }

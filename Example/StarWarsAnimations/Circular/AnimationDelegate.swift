@@ -7,9 +7,9 @@ import UIKit
 
 class AnimationDelegate: NSObject, CAAnimationDelegate {
     
-    private let completion: () -> Void
+    fileprivate let completion: () -> Void
 
-    init(completion: () -> Void) {
+    init(completion: @escaping () -> Void) {
         self.completion = completion
     }
 

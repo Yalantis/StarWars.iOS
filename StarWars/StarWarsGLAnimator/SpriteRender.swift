@@ -10,15 +10,15 @@ import GLKit
 
 class SpriteRender {
     
-    private let texture: ViewTexture
-    private let effect: GLKBaseEffect
+    fileprivate let texture: ViewTexture
+    fileprivate let effect: GLKBaseEffect
     
     init(texture: ViewTexture, effect: GLKBaseEffect) {
         self.texture = texture
         self.effect = effect
     }
     
-    func render(sprites: [Sprite]) {
+    func render(_ sprites: [Sprite]) {
         effect.texture2d0.name = self.texture.name
         effect.texture2d0.enabled = 1
         
@@ -26,17 +26,16 @@ class SpriteRender {
         
         var vertex = sprites.map { $0.quad }
         
-        glEnableVertexAttribArray(GLuint(GLKVertexAttrib.Position.rawValue))
-        glEnableVertexAttribArray(GLuint(GLKVertexAttrib.TexCoord0.rawValue))
+        glEnableVertexAttribArray(GLuint(GLKVertexAttrib.position.rawValue))
+        glEnableVertexAttribArray(GLuint(GLKVertexAttrib.texCoord0.rawValue))
         
-        withUnsafePointer(&vertex[0].bl.geometryVertex) { offset in
-            glVertexAttribPointer(GLuint(GLKVertexAttrib.Position.rawValue), 2, GLenum(GL_FLOAT), GLboolean(UInt8(GL_FALSE)), GLsizei(sizeof(TexturedVertex)), offset)
+        withUnsafePointer(to: &vertex[0].bl.geometryVertex) { offset in
+            glVertexAttribPointer(GLuint(GLKVertexAttrib.position.rawValue), 2, GLenum(GL_FLOAT), GLboolean(UInt8(GL_FALSE)), GLsizei(MemoryLayout<TexturedVertex>.size), offset)
         }
-        withUnsafePointer(&vertex[0].bl.textureVertex) { offset in
-            glVertexAttribPointer(GLuint(GLKVertexAttrib.TexCoord0.rawValue), 2, GLenum(GL_FLOAT), GLboolean(UInt8(GL_FALSE)), GLsizei(sizeof(TexturedVertex)), offset)
+        withUnsafePointer(to: &vertex[0].bl.textureVertex) { offset in
+            glVertexAttribPointer(GLuint(GLKVertexAttrib.texCoord0.rawValue), 2, GLenum(GL_FLOAT), GLboolean(UInt8(GL_FALSE)), GLsizei(MemoryLayout<TexturedVertex>.size), offset)
         }
 
         glDrawArrays(GLenum(GL_TRIANGLES), 0, GLsizei(vertex.count * 6))
     }
-    
 }

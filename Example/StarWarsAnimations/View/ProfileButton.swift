@@ -8,24 +8,23 @@
 
 import UIKit
 
-private let buttonPadding: CGFloat = 50
+private let ButtonPadding: CGFloat = 50
 
-@IBDesignable
-class ProfileButton: UIButton {
+@IBDesignable class ProfileButton: UIButton {
     
-    override func intrinsicContentSize() -> CGSize {
-        let size = super.intrinsicContentSize()
-        return CGSize(width: size.width + buttonPadding, height: size.height)
+    override var intrinsicContentSize: CGSize {
+        let size = super.intrinsicContentSize
+        return CGSize(width: size.width + ButtonPadding, height: size.height)
     }
 
-    func animateTouchUpInside(completion completion: () -> Void) {
-        userInteractionEnabled = false
+    func animateTouchUpInside(completion: @escaping () -> Void) {
+        isUserInteractionEnabled = false
         layer.masksToBounds = true
         
         let fillLayer = CALayer()
-        fillLayer.backgroundColor = self.layer.borderColor
-        fillLayer.frame = self.layer.bounds
-        layer.insertSublayer(fillLayer, atIndex: 0)
+        fillLayer.backgroundColor = layer.borderColor
+        fillLayer.frame = layer.bounds
+        layer.insertSublayer(fillLayer, at: 0)
         
         let center = CGPoint(x: fillLayer.bounds.midX, y: fillLayer.bounds.midY)
         let radius: CGFloat = max(frame.width / 2 , frame.height / 2)
@@ -40,12 +39,11 @@ class ProfileButton: UIButton {
             opacityAnimation.duration = 0.2
             opacityAnimation.delegate = AnimationDelegate {
                 fillLayer.removeFromSuperlayer()
-                self.userInteractionEnabled = true
+                self.isUserInteractionEnabled = true
                 completion()
             }
-            fillLayer.addAnimation(opacityAnimation, forKey: "opacity")
+            fillLayer.add(opacityAnimation, forKey: "opacity")
         }
         circularAnimation.start()
-
     }
 }

@@ -10,8 +10,7 @@ import UIKit
 
 class MainSettingsViewController: UIViewController {
 
-    @IBOutlet
-    private weak var saveButton: UIButton!
+    @IBOutlet fileprivate weak var saveButton: UIButton!
     
     var theme: SettingsTheme! {
         didSet {
@@ -22,26 +21,26 @@ class MainSettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupNavigationBar()
+        setupNavigationBar()
     }
 
-    private func setupNavigationBar() {
-        navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+    fileprivate func setupNavigationBar() {
+        navigationController!.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController!.navigationBar.shadowImage = UIImage()
-        navigationController!.navigationBar.translucent = true
+        navigationController!.navigationBar.isTranslucent = true
         navigationController!.navigationBar.titleTextAttributes = [
             NSFontAttributeName: UIFont(name: "GothamPro", size: 20)!,
-            NSForegroundColorAttributeName: UIColor.whiteColor()
+            NSForegroundColorAttributeName: UIColor.white
         ]
     }
     
-    private var settingsViewController: SettingsViewController!
+    fileprivate var settingsViewController: SettingsViewController?
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let settings = segue.destinationViewController as? SettingsViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let settings = segue.destination as? SettingsViewController {
             settingsViewController = settings
             settings.themeChanged = { [unowned self, unowned settings] darkside, center in
-                let center = self.view.convertPoint(center, fromView: settings.view)
+                let center = self.view.convert(center, from: settings.view)
                 self.view.animateCircularWithDuration(0.5, center: center, revert: darkside ? false : true, animations: {
                     self.theme = darkside ? .dark : .light
                 })
@@ -49,7 +48,7 @@ class MainSettingsViewController: UIViewController {
         }
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
 }

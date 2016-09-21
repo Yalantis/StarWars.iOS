@@ -8,45 +8,34 @@
 
 import UIKit
 
-private let tableViewOffset: CGFloat = UIScreen.mainScreen().bounds.height < 600 ? 215 : 225
-private let beforeAppearOffset: CGFloat = 400
+private let TableViewOffset: CGFloat = UIScreen.main.bounds.height < 600 ? 215 : 225
+private let BeforeAppearOffset: CGFloat = 400
 
 class SettingsViewController: UITableViewController {
     
-    var themeChanged: ((darkside: Bool, center: CGPoint) -> Void)?
+    var themeChanged: ((_ darkside: Bool, _ center: CGPoint) -> Void)?
 
-    @IBOutlet
-    private var backgroundHolder: UIView!
+    @IBOutlet fileprivate var backgroundHolder: UIView!
     
-    @IBOutlet
-    private weak var backgroundImageView: UIImageView!
+    @IBOutlet fileprivate weak var backgroundImageView: UIImageView!
 
-    @IBOutlet
-    private weak var backgroundHeightConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var backgroundHeightConstraint: NSLayoutConstraint!
     
-    @IBOutlet
-    private weak var backgroundWidthConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var backgroundWidthConstraint: NSLayoutConstraint!
     
-    @IBOutlet
-    private weak var darkSideSwitch: UISwitch!
+    @IBOutlet fileprivate weak var darkSideSwitch: UISwitch!
     
-    @IBOutlet
-    private weak var radioInactiveImageView: UIImageView!
-    @IBOutlet
-    private weak var radioActiveImageView: UIImageView!
+    @IBOutlet fileprivate weak var radioInactiveImageView: UIImageView!
+    @IBOutlet fileprivate weak var radioActiveImageView: UIImageView!
     
-    @IBOutlet
-    private var cellTitleLabels: [UILabel]!
-    @IBOutlet
-    private var cellSubtitleLabels: [UILabel]!
+    @IBOutlet fileprivate var cellTitleLabels: [UILabel]!
+    @IBOutlet fileprivate var cellSubtitleLabels: [UILabel]!
     
-    @IBOutlet
-    private weak var usernameLabel: UILabel!
+    @IBOutlet fileprivate weak var usernameLabel: UILabel!
     
-    @IBAction
-    private func darkSideChanged(sender: AnyObject) {
-        let center = self.tableView.convertPoint(darkSideSwitch.center, fromView: darkSideSwitch.superview)
-        self.themeChanged?(darkside: darkSideSwitch.on, center: center)
+    @IBAction fileprivate func darkSideChanged(_ sender: AnyObject) {
+        let center = self.tableView.convert(darkSideSwitch.center, from: darkSideSwitch.superview)
+        self.themeChanged?(darkSideSwitch.isOn, center)
     }
     
     var theme: SettingsTheme! {
@@ -63,14 +52,14 @@ class SettingsViewController: UITableViewController {
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.contentInset = UIEdgeInsets(top: tableViewOffset, left: 0, bottom: 0, right: 0)
-        tableView.contentOffset = CGPoint(x: 0, y: -beforeAppearOffset)
+        tableView.contentInset = UIEdgeInsets(top: TableViewOffset, left: 0, bottom: 0, right: 0)
+        tableView.contentOffset = CGPoint(x: 0, y: -BeforeAppearOffset)
 
-        UIView.animateWithDuration(0.5, animations: {
-            self.tableView.contentOffset = CGPoint(x: 0, y: -tableViewOffset)
-        })
+        UIView.animate(withDuration: 0.5) {
+            self.tableView.contentOffset = CGPoint(x: 0, y: -TableViewOffset)
+        }
     }
     
     override func viewDidLoad() {
@@ -80,11 +69,11 @@ class SettingsViewController: UITableViewController {
         tableView.backgroundView = backgroundHolder
     }
     
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = theme.backgroundColor
     }
     
-    override func scrollViewDidScroll(scrollView: UIScrollView) {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         backgroundHeightConstraint.constant = max(navigationController!.navigationBar.bounds.height + scrollView.contentInset.top - scrollView.contentOffset.y, 0)
         backgroundWidthConstraint.constant = navigationController!.navigationBar.bounds.height - scrollView.contentInset.top - scrollView.contentOffset.y * 0.8
     }
