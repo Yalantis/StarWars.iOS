@@ -23,7 +23,7 @@ public class StarWarsUIDynamicAnimator: NSObject, UIViewControllerAnimatedTransi
     
     public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         
-        let containerView = transitionContext.containerView()!
+        let containerView = transitionContext.containerView()
         let fromView = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!.view
         let toView = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!.view
         
@@ -50,13 +50,13 @@ public class StarWarsUIDynamicAnimator: NSObject, UIViewControllerAnimatedTransi
             for y in CGFloat(0).stride(through: size.height, by: height) {
                 let snapshotRegion = CGRect(x: x, y: y, width: width, height: height)
                 
-                let snapshot = fromViewSnapshot.resizableSnapshotViewFromRect(snapshotRegion, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
+                let snapshot = fromViewSnapshot!.resizableSnapshotViewFromRect(snapshotRegion, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
                 
-                containerView.addSubview(snapshot)
-                snapshot.frame = snapshotRegion
-                snapshots.append(snapshot)
+                containerView.addSubview(snapshot!)
+                snapshot!.frame = snapshotRegion
+                snapshots.append(snapshot!)
                 
-                let push = UIPushBehavior(items: [snapshot], mode: .Instantaneous)
+                let push = UIPushBehavior(items: [snapshot!], mode: .Instantaneous)
                 push.pushDirection = CGVector(dx: randomFloatBetween(-0.15 , and: 0.15), dy: randomFloatBetween(-0.15 , and: 0))
                 push.active = true
                 animator.addBehavior(push)
@@ -69,7 +69,7 @@ public class StarWarsUIDynamicAnimator: NSObject, UIViewControllerAnimatedTransi
         
         fromView.removeFromSuperview()
         
-        NSTimer.scheduledTimerWithTimeInterval(duration, target: self, selector: "completeTransition", userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(duration, target: self, selector: #selector(StarWarsUIDynamicAnimator.completeTransition), userInfo: nil, repeats: false)
         self.transitionContext = transitionContext
     }
     

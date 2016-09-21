@@ -3,16 +3,17 @@
 //  Licensed under the MIT license: http://opensource.org/licenses/MIT
 //
 
-import QuartzCore
+import UIKit
 
-class AnimationDelegate {
+class AnimationDelegate: NSObject, CAAnimationDelegate {
+    
     private let completion: () -> Void
 
     init(completion: () -> Void) {
         self.completion = completion
     }
 
-    dynamic func animationDidStop(_: CAAnimation, finished: Bool) {
+    func animationDidStop(_: CAAnimation, finished: Bool) {
         completion()
     }
 }

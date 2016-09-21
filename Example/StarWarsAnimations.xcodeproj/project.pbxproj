@@ -7,29 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A05EF861BD4B9F600BF150F /* MainSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A05EF851BD4B9F600BF150F /* MainSettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		2A05EF861BD4B9F600BF150F /* MainSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A05EF851BD4B9F600BF150F /* MainSettingsViewController.swift */; };
 		2A6F123B1BD6662F00D12C56 /* GothaProReg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A89D8891BD6626D00A2C503 /* GothaProReg.otf */; };
-		2A89D88C1BD6628000A2C503 /* AnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A89D88A1BD6628000A2C503 /* AnimationDelegate.swift */; settings = {ASSET_TAGS = (); }; };
-		2A89D88D1BD6628000A2C503 /* CircularRevealAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A89D88B1BD6628000A2C503 /* CircularRevealAnimator.swift */; settings = {ASSET_TAGS = (); }; };
+		2A89D88C1BD6628000A2C503 /* AnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A89D88A1BD6628000A2C503 /* AnimationDelegate.swift */; };
+		2A89D88D1BD6628000A2C503 /* CircularRevealAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A89D88B1BD6628000A2C503 /* CircularRevealAnimator.swift */; };
 		2A89D8981BD6633300A2C503 /* StarWars.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A89D8971BD6633300A2C503 /* StarWars.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2A89D89C1BD6633300A2C503 /* StarWars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A89D8951BD6633300A2C503 /* StarWars.framework */; };
 		2A89D89D1BD6633300A2C503 /* StarWars.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A89D8951BD6633300A2C503 /* StarWars.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2A89D8A81BD663A000A2C503 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A89D8A31BD663A000A2C503 /* Sprite.swift */; settings = {ASSET_TAGS = (); }; };
-		2A89D8A91BD663A000A2C503 /* SpriteRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A89D8A41BD663A000A2C503 /* SpriteRender.swift */; settings = {ASSET_TAGS = (); }; };
-		2A89D8AA1BD663A000A2C503 /* StarWarsGLAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A89D8A51BD663A000A2C503 /* StarWarsGLAnimator.swift */; settings = {ASSET_TAGS = (); }; };
-		2A89D8AB1BD663A000A2C503 /* Vector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A89D8A61BD663A000A2C503 /* Vector2.swift */; settings = {ASSET_TAGS = (); }; };
-		2A89D8AC1BD663A000A2C503 /* ViewTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A89D8A71BD663A000A2C503 /* ViewTexture.swift */; settings = {ASSET_TAGS = (); }; };
-		2A89D8AF1BD663B300A2C503 /* StarWarsUIDynamicAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A89D8AE1BD663B300A2C503 /* StarWarsUIDynamicAnimator.swift */; settings = {ASSET_TAGS = (); }; };
-		2A89D8B21BD663C500A2C503 /* StarWarsUIViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A89D8B11BD663C500A2C503 /* StarWarsUIViewAnimator.swift */; settings = {ASSET_TAGS = (); }; };
-		2A977CAE1BC55CF10038BE80 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A977CAC1BC55CF10038BE80 /* IntroViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		2A977CAF1BC55CF10038BE80 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A977CAD1BC55CF10038BE80 /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		2A977CB41BC55D040038BE80 /* UIColor+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A977CB11BC55D040038BE80 /* UIColor+String.swift */; settings = {ASSET_TAGS = (); }; };
-		2A977CB51BC55D040038BE80 /* UIView+CircularAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A977CB21BC55D040038BE80 /* UIView+CircularAnimation.swift */; settings = {ASSET_TAGS = (); }; };
-		2A977CB61BC55D040038BE80 /* UIView+IBInspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A977CB31BC55D040038BE80 /* UIView+IBInspectable.swift */; settings = {ASSET_TAGS = (); }; };
-		2A977CB91BC55D160038BE80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A977CB81BC55D160038BE80 /* AppDelegate.swift */; settings = {ASSET_TAGS = (); }; };
-		2A977CBD1BC55D3F0038BE80 /* SettingsTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A977CBC1BC55D3F0038BE80 /* SettingsTheme.swift */; settings = {ASSET_TAGS = (); }; };
-		2A977CC01BC55D740038BE80 /* ProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A977CBE1BC55D740038BE80 /* ProfileButton.swift */; settings = {ASSET_TAGS = (); }; };
-		2A977CC11BC55D740038BE80 /* StarsOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A977CBF1BC55D740038BE80 /* StarsOverlay.swift */; settings = {ASSET_TAGS = (); }; };
+		2A89D8A81BD663A000A2C503 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A89D8A31BD663A000A2C503 /* Sprite.swift */; };
+		2A89D8A91BD663A000A2C503 /* SpriteRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A89D8A41BD663A000A2C503 /* SpriteRender.swift */; };
+		2A89D8AA1BD663A000A2C503 /* StarWarsGLAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A89D8A51BD663A000A2C503 /* StarWarsGLAnimator.swift */; };
+		2A89D8AB1BD663A000A2C503 /* Vector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A89D8A61BD663A000A2C503 /* Vector2.swift */; };
+		2A89D8AC1BD663A000A2C503 /* ViewTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A89D8A71BD663A000A2C503 /* ViewTexture.swift */; };
+		2A89D8AF1BD663B300A2C503 /* StarWarsUIDynamicAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A89D8AE1BD663B300A2C503 /* StarWarsUIDynamicAnimator.swift */; };
+		2A89D8B21BD663C500A2C503 /* StarWarsUIViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A89D8B11BD663C500A2C503 /* StarWarsUIViewAnimator.swift */; };
+		2A977CAE1BC55CF10038BE80 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A977CAC1BC55CF10038BE80 /* IntroViewController.swift */; };
+		2A977CAF1BC55CF10038BE80 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A977CAD1BC55CF10038BE80 /* SettingsViewController.swift */; };
+		2A977CB41BC55D040038BE80 /* UIColor+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A977CB11BC55D040038BE80 /* UIColor+String.swift */; };
+		2A977CB51BC55D040038BE80 /* UIView+CircularAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A977CB21BC55D040038BE80 /* UIView+CircularAnimation.swift */; };
+		2A977CB61BC55D040038BE80 /* UIView+IBInspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A977CB31BC55D040038BE80 /* UIView+IBInspectable.swift */; };
+		2A977CB91BC55D160038BE80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A977CB81BC55D160038BE80 /* AppDelegate.swift */; };
+		2A977CBD1BC55D3F0038BE80 /* SettingsTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A977CBC1BC55D3F0038BE80 /* SettingsTheme.swift */; };
+		2A977CC01BC55D740038BE80 /* ProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A977CBE1BC55D740038BE80 /* ProfileButton.swift */; };
+		2A977CC11BC55D740038BE80 /* StarsOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A977CBF1BC55D740038BE80 /* StarsOverlay.swift */; };
 		2ACECE401BA2BF2E005689AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACECE3E1BA2BF2E005689AD /* Main.storyboard */; };
 		2ACECE421BA2BF2E005689AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ACECE411BA2BF2E005689AD /* Assets.xcassets */; };
 		2ACECE451BA2BF2E005689AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACECE431BA2BF2E005689AD /* LaunchScreen.storyboard */; };
@@ -306,14 +306,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Yalantis;
 				TargetAttributes = {
 					2A89D8941BD6633300A2C503 = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0800;
 					};
 					2ACECE361BA2BF2E005689AD = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -425,6 +427,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -438,6 +441,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -447,6 +451,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -459,6 +464,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Yalantis.StarWars.Animation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -477,8 +483,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -522,8 +530,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -542,6 +552,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -550,28 +561,30 @@
 		2ACECE4A1BA2BF2E005689AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = StarWarsAnimations/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Yalantis.StarWars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
 		2ACECE4B1BA2BF2E005689AD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = StarWarsAnimations/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Yalantis.StarWars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};

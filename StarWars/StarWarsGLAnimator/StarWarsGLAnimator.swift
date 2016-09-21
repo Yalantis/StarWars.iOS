@@ -14,7 +14,6 @@ public class StarWarsGLAnimator: NSObject, UIViewControllerAnimatedTransitioning
     public var duration: NSTimeInterval = 2
     public var spriteWidth: CGFloat = 8
     
-    
     private var sprites: [Sprite] = []
     private var glContext: EAGLContext!
     private var effect: GLKBaseEffect!
@@ -31,7 +30,7 @@ public class StarWarsGLAnimator: NSObject, UIViewControllerAnimatedTransitioning
     
     public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         
-        let containerView = transitionContext.containerView()!
+        let containerView = transitionContext.containerView()
         let fromView = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!.view
         let toView = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!.view
         
@@ -81,7 +80,7 @@ public class StarWarsGLAnimator: NSObject, UIViewControllerAnimatedTransitioning
         fromView.removeFromSuperview()
         self.transitionContext = transitionContext
         
-        displayLink = CADisplayLink(target: self, selector: "displayLinkTick:")
+        displayLink = CADisplayLink(target: self, selector: #selector(StarWarsGLAnimator.displayLinkTick(_:)))
         displayLink.paused = false
         displayLink.addToRunLoop(NSRunLoop.mainRunLoop(), forMode: NSRunLoopCommonModes)
         

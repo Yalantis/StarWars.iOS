@@ -20,7 +20,7 @@ public class StarWarsUIViewAnimator: NSObject, UIViewControllerAnimatedTransitio
     
     public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         
-        let containerView = transitionContext.containerView()!
+        let containerView = transitionContext.containerView()
         let fromView = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!.view
         let toView = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!.view
         
@@ -46,11 +46,11 @@ public class StarWarsUIViewAnimator: NSObject, UIViewControllerAnimatedTransitio
                 
                 let snapshotRegion = CGRect(x: x, y: y, width: width, height: height)
                 
-                let snapshot = fromViewSnapshot.resizableSnapshotViewFromRect(snapshotRegion, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
+                let snapshot = fromViewSnapshot!.resizableSnapshotViewFromRect(snapshotRegion, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
                 
-                containerView.addSubview(snapshot)
-                snapshot.frame = snapshotRegion
-                snapshots.append(snapshot)
+                containerView.addSubview(snapshot!)
+                snapshot!.frame = snapshotRegion
+                snapshots.append(snapshot!)
             }
         }
         
