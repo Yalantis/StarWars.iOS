@@ -14,7 +14,7 @@ open class StarWarsUIViewAnimator: NSObject, UIViewControllerAnimatedTransitioni
     open var spriteWidth: CGFloat = 10
 
     open func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return self.duration
+        return duration
     }
     
     open func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -51,9 +51,7 @@ open class StarWarsUIViewAnimator: NSObject, UIViewControllerAnimatedTransitioni
                 snapshots.append(snapshot!)
             }
         }
-        
-        print(snapshots.count)
-        
+    
         containerView.sendSubview(toBack: fromView!)
         
         UIView.animate(

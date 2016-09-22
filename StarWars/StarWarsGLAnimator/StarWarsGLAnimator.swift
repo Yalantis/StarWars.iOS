@@ -25,11 +25,10 @@ open class StarWarsGLAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     fileprivate var render: SpriteRender!
     
     open func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return self.duration
+        return duration
     }
     
     open func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        
         let containerView = transitionContext.containerView
         let fromView = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!.view
         let toView = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!.view
@@ -88,8 +87,8 @@ open class StarWarsGLAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     open func animationEnded(_ transitionCompleted: Bool) {
-        self.displayLink.invalidate()
-        self.displayLink = nil
+        displayLink.invalidate()
+        displayLink = nil
     }
     
     func displayLinkTick(_ displayLink: CADisplayLink) {
@@ -100,11 +99,11 @@ open class StarWarsGLAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                 sprites[index].update(timeSinceLastUpdate)
             }
         } else {
-            self.lastUpdateTime = Date.timeIntervalSinceReferenceDate
+            lastUpdateTime = Date.timeIntervalSinceReferenceDate
         }
-        self.glView.setNeedsDisplay()
-        if Date.timeIntervalSinceReferenceDate - self.startTransitionTime > self.duration {
-            self.transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        glView.setNeedsDisplay()
+        if Date.timeIntervalSinceReferenceDate - startTransitionTime > duration {
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
     }
 }

@@ -16,13 +16,12 @@ open class StarWarsUIDynamicAnimator: NSObject, UIViewControllerAnimatedTransiti
     var transitionContext: UIViewControllerContextTransitioning!
 
     open func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return self.duration
+        return duration
     }
     
     var animator: UIDynamicAnimator!
     
     open func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        
         let containerView = transitionContext.containerView
         let fromView = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!.view
         let toView = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!.view
@@ -30,8 +29,7 @@ open class StarWarsUIDynamicAnimator: NSObject, UIViewControllerAnimatedTransiti
         containerView.addSubview(toView!)
         containerView.sendSubview(toBack: toView!)
         
-        var snapshots:[UIView] = []
-        let size = fromView?.frame.size
+        let size = fromView!.frame.size
         
         func randomFloatBetween(_ smallNumber: CGFloat, and bigNumber: CGFloat) -> CGFloat {
             let diff = bigNumber - smallNumber
@@ -40,23 +38,24 @@ open class StarWarsUIDynamicAnimator: NSObject, UIViewControllerAnimatedTransiti
         
         // snapshot the from view, this makes subsequent snaphots more performant
         let fromViewSnapshot = fromView?.snapshotView(afterScreenUpdates: false)
-        
+
         let width = spriteWidth
         let height = width
         
         animator = UIDynamicAnimator(referenceView: containerView)
         
-        for x in stride(from: CGFloat(0), through: (size?.width)!, by: width) {
-            for y in stride(from: CGFloat(0), through: (size?.height)!, by: height) {
+        var snapshots: [UIView] = []
+        for x in stride(from: CGFloat(0), through: size.width, by: width) {
+            for y in stride(from: CGFloat(0), through: size.height, by: height) {
                 let snapshotRegion = CGRect(x: x, y: y, width: width, height: height)
                 
-                let snapshot = fromViewSnapshot!.resizableSnapshotView(from: snapshotRegion, afterScreenUpdates: false, withCapInsets: UIEdgeInsets.zero)
+                let snapshot = fromViewSnapshot!.resizableSnapshotView(from: snapshotRegion, afterScreenUpdates: false, withCapInsets: .zero)!
                 
-                containerView.addSubview(snapshot!)
-                snapshot!.frame = snapshotRegion
-                snapshots.append(snapshot!)
+                containerView.addSubview(snapshot)
+                snapshot.frame = snapshotRegion
+                snapshots.append(snapshot)
                 
-                let push = UIPushBehavior(items: [snapshot!], mode: .instantaneous)
+                let push = UIPushBehavior(items: [snapshot], mode: .instantaneous)
                 push.pushDirection = CGVector(dx: randomFloatBetween(-0.15 , and: 0.15), dy: randomFloatBetween(-0.15 , and: 0))
                 push.active = true
                 animator.addBehavior(push)
@@ -74,6 +73,6 @@ open class StarWarsUIDynamicAnimator: NSObject, UIViewControllerAnimatedTransiti
     }
     
     func completeTransition() {
-        self.transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
     }
 }

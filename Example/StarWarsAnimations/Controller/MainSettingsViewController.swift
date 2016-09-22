@@ -41,7 +41,7 @@ class MainSettingsViewController: UIViewController {
             settingsViewController = settings
             settings.themeChanged = { [unowned self, unowned settings] darkside, center in
                 let center = self.view.convert(center, from: settings.view)
-                self.view.animateCircularWithDuration(0.5, center: center, revert: darkside ? false : true, animations: {
+                self.view.animateCircular(withDuration: 0.5, center: center, revert: darkside ? false : true, animations: {
                     self.theme = darkside ? .dark : .light
                 })
             }
