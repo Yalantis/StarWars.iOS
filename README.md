@@ -14,7 +14,7 @@ Also, read how it was done in [our blog](https://yalantis.com/blog/uidynamics-ui
 ## Requirements
 
 - iOS 8.0+
-- Xcode 9
+- Xcode 8
 - Swift 3
 
 ## Installing with [CocoaPods](https://cocoapods.org)
