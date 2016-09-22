@@ -9,52 +9,50 @@
 import UIKit
 import GLKit
 
-public class StarWarsGLAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+open class StarWarsGLAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    public var duration: NSTimeInterval = 2
-    public var spriteWidth: CGFloat = 8
+    open var duration: TimeInterval = 2
+    open var spriteWidth: CGFloat = 8
     
+    fileprivate var sprites: [Sprite] = []
+    fileprivate var glContext: EAGLContext!
+    fileprivate var effect: GLKBaseEffect!
+    fileprivate var glView: GLKView!
+    fileprivate var displayLink: CADisplayLink!
+    fileprivate var lastUpdateTime: TimeInterval?
+    fileprivate var startTransitionTime: TimeInterval!
+    fileprivate var transitionContext: UIViewControllerContextTransitioning!
+    fileprivate var render: SpriteRender!
     
-    private var sprites: [Sprite] = []
-    private var glContext: EAGLContext!
-    private var effect: GLKBaseEffect!
-    private var glView: GLKView!
-    private var displayLink: CADisplayLink!
-    private var lastUpdateTime: NSTimeInterval?
-    private var startTransitionTime: NSTimeInterval!
-    private var transitionContext: UIViewControllerContextTransitioning!
-    private var render: SpriteRender!
-    
-    public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return self.duration
+    open func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return duration
     }
     
-    public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    open func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        let containerView = transitionContext.containerView
+        let fromView = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!.view
+        let toView = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!.view
         
-        let containerView = transitionContext.containerView()!
-        let fromView = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!.view
-        let toView = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!.view
+        containerView.addSubview(toView!)
+        containerView.sendSubview(toBack: toView!)
         
-        containerView.addSubview(toView)
-        containerView.sendSubviewToBack(toView)
-        
-        func randomFloatBetween(smallNumber: CGFloat, and bigNumber: CGFloat) -> Float {
+        func randomFloatBetween(_ smallNumber: CGFloat, and bigNumber: CGFloat) -> Float {
             let diff = bigNumber - smallNumber
-            return Float(CGFloat(arc4random()) / 100.0 % diff + smallNumber)
+            return Float((CGFloat(arc4random()) / 100.0).truncatingRemainder(dividingBy: diff) + smallNumber)
         }
         
-        self.glContext = EAGLContext(API: .OpenGLES2)
-        EAGLContext.setCurrentContext(glContext)
+        self.glContext = EAGLContext(api: .openGLES2)
+        EAGLContext.setCurrent(glContext)
         
-        glView = GLKView(frame: fromView.frame, context: glContext)
+        glView = GLKView(frame: (fromView?.frame)!, context: glContext)
         glView.enableSetNeedsDisplay = true
         glView.delegate = self
-        glView.opaque = false
+        glView.isOpaque = false
         containerView.addSubview(glView)
 
         let texture = ViewTexture()
         texture.setupOpenGL()
-        texture.renderView(fromView)
+        texture.render(view: fromView!)
         
         effect = GLKBaseEffect()
         let projectionMatrix = GLKMatrix4MakeOrtho(0, Float(texture.width), 0, Float(texture.height), -1, 1)
@@ -64,12 +62,12 @@ public class StarWarsGLAnimator: NSObject, UIViewControllerAnimatedTransitioning
         
         let size = CGSize(width: CGFloat(texture.width), height: CGFloat(texture.height))
         
-        let scale = UIScreen.mainScreen().scale
+        let scale = UIScreen.main.scale
         let width = spriteWidth * scale
         let height = width
         
-        for x in CGFloat(0).stride(through: size.width, by: width) {
-            for y in CGFloat(0).stride(through: size.height, by: height) {
+        for x in stride(from: CGFloat(0), through: size.width, by: width) {
+            for y in stride(from: CGFloat(0), through: size.height, by: height) {
                 let region = CGRect(x: x, y: y, width: width, height: height)
                 var sprite = Sprite()
                 sprite.slice(region, textureSize: size)
@@ -78,41 +76,41 @@ public class StarWarsGLAnimator: NSObject, UIViewControllerAnimatedTransitioning
                 sprites.append(sprite)
             }
         }
-        fromView.removeFromSuperview()
+        fromView?.removeFromSuperview()
         self.transitionContext = transitionContext
         
-        displayLink = CADisplayLink(target: self, selector: "displayLinkTick:")
-        displayLink.paused = false
-        displayLink.addToRunLoop(NSRunLoop.mainRunLoop(), forMode: NSRunLoopCommonModes)
+        displayLink = CADisplayLink(target: self, selector: #selector(StarWarsGLAnimator.displayLinkTick(_:)))
+        displayLink.isPaused = false
+        displayLink.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
         
-        self.startTransitionTime = NSDate.timeIntervalSinceReferenceDate()        
+        self.startTransitionTime = Date.timeIntervalSinceReferenceDate        
     }
     
-    public func animationEnded(transitionCompleted: Bool) {
-        self.displayLink.invalidate()
-        self.displayLink = nil
+    open func animationEnded(_ transitionCompleted: Bool) {
+        displayLink.invalidate()
+        displayLink = nil
     }
     
-    func displayLinkTick(displayLink: CADisplayLink) {
+    func displayLinkTick(_ displayLink: CADisplayLink) {
         if let lastUpdateTime = lastUpdateTime {
-            let timeSinceLastUpdate = NSDate.timeIntervalSinceReferenceDate() - lastUpdateTime
-            self.lastUpdateTime = NSDate.timeIntervalSinceReferenceDate()
+            let timeSinceLastUpdate = Date.timeIntervalSinceReferenceDate - lastUpdateTime
+            self.lastUpdateTime = Date.timeIntervalSinceReferenceDate
             for index in 0..<sprites.count {
                 sprites[index].update(timeSinceLastUpdate)
             }
         } else {
-            self.lastUpdateTime = NSDate.timeIntervalSinceReferenceDate()
+            lastUpdateTime = Date.timeIntervalSinceReferenceDate
         }
-        self.glView.setNeedsDisplay()
-        if NSDate.timeIntervalSinceReferenceDate() - self.startTransitionTime > self.duration {
-            self.transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
+        glView.setNeedsDisplay()
+        if Date.timeIntervalSinceReferenceDate - startTransitionTime > duration {
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
     }
 }
 
 extension StarWarsGLAnimator: GLKViewDelegate {
     
-    public func glkView(view: GLKView, drawInRect rect: CGRect) {
+    public func glkView(_ view: GLKView, drawIn rect: CGRect) {
         glClearColor(0, 0, 0, 0)
         glClear(UInt32(GL_COLOR_BUFFER_BIT))
         glBlendFunc(GLenum(GL_SRC_ALPHA), GLenum(GL_ONE_MINUS_SRC_ALPHA))

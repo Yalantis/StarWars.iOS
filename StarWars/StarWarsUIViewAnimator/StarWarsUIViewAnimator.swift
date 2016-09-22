@@ -8,69 +8,70 @@
 
 import UIKit
 
-public class StarWarsUIViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+open class StarWarsUIViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
-    public var duration: NSTimeInterval = 2
-    public var spriteWidth: CGFloat = 10
+    open var duration: TimeInterval = 2
+    open var spriteWidth: CGFloat = 10
 
-
-    public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return self.duration
+    open func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return duration
     }
     
-    public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    open func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        let containerView = transitionContext.containerView
+        let fromView = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!.view
+        let toView = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!.view
         
-        let containerView = transitionContext.containerView()!
-        let fromView = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!.view
-        let toView = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!.view
-        
-        containerView.addSubview(toView)
-        containerView.sendSubviewToBack(toView)
+        containerView.addSubview(toView!)
+        containerView.sendSubview(toBack: toView!)
         
         var snapshots:[UIView] = []
-        let size = fromView.frame.size
+        let size = fromView?.frame.size
         
-        func randomFloatBetween(smallNumber: CGFloat, and bigNumber: CGFloat) -> CGFloat {
+        func randomFloatBetween(_ smallNumber: CGFloat, and bigNumber: CGFloat) -> CGFloat {
             let diff = bigNumber - smallNumber
-            return CGFloat(arc4random()) / 100.0 % diff + smallNumber
+            return (CGFloat(arc4random()) / 100.0).truncatingRemainder(dividingBy: diff) + smallNumber
         }
         
         // snapshot the from view, this makes subsequent snaphots more performant
-        let fromViewSnapshot = fromView.snapshotViewAfterScreenUpdates(false)
+        let fromViewSnapshot = fromView?.snapshotView(afterScreenUpdates: false)
         
         let width = spriteWidth
         let height = width
         
-        for x in CGFloat(0).stride(through: size.width, by: width) {
-            for y in CGFloat(0).stride(through: size.height, by: height) {
+        for x in stride(from: CGFloat(0), through: (size?.width)!, by: width) {
+            for y in stride(from: CGFloat(0), through: (size?.height)!, by: height) {
                 
                 let snapshotRegion = CGRect(x: x, y: y, width: width, height: height)
                 
-                let snapshot = fromViewSnapshot.resizableSnapshotViewFromRect(snapshotRegion, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
+                let snapshot = fromViewSnapshot!.resizableSnapshotView(from: snapshotRegion, afterScreenUpdates: false, withCapInsets: UIEdgeInsets.zero)
                 
-                containerView.addSubview(snapshot)
-                snapshot.frame = snapshotRegion
-                snapshots.append(snapshot)
+                containerView.addSubview(snapshot!)
+                snapshot!.frame = snapshotRegion
+                snapshots.append(snapshot!)
             }
         }
+    
+        containerView.sendSubview(toBack: fromView!)
         
-        print(snapshots.count)
-        
-        containerView.sendSubviewToBack(fromView)
-        
-        UIView.animateWithDuration(duration, delay: 0, options: UIViewAnimationOptions.CurveLinear,  animations: {
-            for view in snapshots {
-                
-                let xOffset: CGFloat = randomFloatBetween(-200 , and: 200)
-                let yOffset: CGFloat = randomFloatBetween(fromView.frame.height, and: fromView.frame.height * 1.3)
-                view.frame = view.frame.offsetBy(dx: xOffset, dy: yOffset)
-            }
-            }) { finished in
+        UIView.animate(
+            withDuration:
+            duration,
+            delay: 0,
+            options: UIViewAnimationOptions.curveLinear,
+            animations: {
+                for view in snapshots {
+                    let xOffset = randomFloatBetween(-200 , and: 200)
+                    let yOffset = randomFloatBetween(fromView!.frame.height, and: fromView!.frame.height * 1.3)
+                    view.frame = view.frame.offsetBy(dx: xOffset, dy: yOffset)
+                }
+            },
+            completion: { _ in
                 for view in snapshots {
                     view.removeFromSuperview()
                 }
-                transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
-        }
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+            }
+        )
     }
-
 }

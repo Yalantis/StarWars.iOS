@@ -18,7 +18,6 @@ class SettingsTheme {
         return SettingsTheme(darkSide: true)
     }
 
-    
     let backgroundColor: UIColor
     let separatorColor: UIColor
     let topImage: UIImage
@@ -30,7 +29,6 @@ class SettingsTheme {
     let radioInactiveImage: UIImage
     
     let username: String
-    
     
     init(darkSide: Bool) {
         if darkSide {
@@ -55,5 +53,4 @@ class SettingsTheme {
             radioInactiveImage = UIImage(named: "Radio-light_Inactive")!
         }
     }
-    
 }

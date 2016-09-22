@@ -21,15 +21,15 @@ struct TexturedQuad {
     
     // openGL optimization. it uses triangles to draw.
     // so we duplicate 2 vertex, so it have 6 vertex to draw two triangles
-    private var _br = TexturedVertex()
-    private var _tl = TexturedVertex()
+    fileprivate var _br = TexturedVertex()
+    fileprivate var _tl = TexturedVertex()
 }
 
 struct Sprite {
     var quad = TexturedQuad()
     var moveVelocity = Vector2()
     
-    mutating func slice(rect: CGRect, textureSize: CGSize) {
+    mutating func slice(_ rect: CGRect, textureSize: CGSize) {
         quad.bl.geometryVertex = Vector2(x: 0, y: 0)
         quad.br.geometryVertex = Vector2(x: rect.size.width, y: 0)
         quad.tl.geometryVertex = Vector2(x: 0, y: rect.size.height)
@@ -53,7 +53,7 @@ struct Sprite {
         }
     }
     
-    mutating func update(tick: NSTimeInterval) {
+    mutating func update(_ tick: TimeInterval) {
         position += moveVelocity * Float32(tick)
     }
 

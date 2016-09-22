@@ -10,7 +10,7 @@ import UIKit
 
 class StarsOverlay: UIView {
 
-    override class func layerClass() -> AnyClass {
+    override class var layerClass : AnyClass {
         return CAEmitterLayer.self
     }
     
@@ -24,11 +24,11 @@ class StarsOverlay: UIView {
         self.setup()
     }
     
-    private var emitter: CAEmitterLayer {
+    fileprivate var emitter: CAEmitterLayer {
         return layer as! CAEmitterLayer
     }
     
-    private var particle: CAEmitterCell!
+    fileprivate var particle: CAEmitterCell!
     
     func setup() {
         emitter.emitterMode = kCAEmitterLayerOutline
@@ -38,7 +38,7 @@ class StarsOverlay: UIView {
         
         particle = CAEmitterCell()
         
-        particle.contents = UIImage(named: "spark")!.CGImage
+        particle.contents = UIImage(named: "spark")!.cgImage
         particle.birthRate = 10
         
         particle.lifetime = 50
@@ -54,14 +54,14 @@ class StarsOverlay: UIView {
         emitter.emitterCells = [particle]
     }
     
-    var emitterTimer: NSTimer?
+    var emitterTimer: Timer?
     
     override func didMoveToWindow() {
         super.didMoveToWindow()
         
         if self.window != nil {
             if emitterTimer == nil {
-                emitterTimer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "randomizeEmitterPosition", userInfo: nil, repeats: true)
+                emitterTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(StarsOverlay.randomizeEmitterPosition), userInfo: nil, repeats: true)
             }
         } else if emitterTimer != nil {
             emitterTimer?.invalidate()
@@ -71,7 +71,7 @@ class StarsOverlay: UIView {
     
     func randomizeEmitterPosition() {
         let sizeWidth = max(bounds.width, bounds.height)
-        let radius = CGFloat(arc4random()) % sizeWidth
+        let radius = CGFloat(arc4random()).truncatingRemainder(dividingBy: sizeWidth)
         emitter.emitterSize = CGSize(width: radius, height: radius)
         particle.birthRate = 10 + sqrt(Float(radius))
     }

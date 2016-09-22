@@ -11,26 +11,29 @@ Check this <a href="https://dribbble.com/shots/2109991-Star-Wars-App-concept">pr
 
 Also, read how it was done in [our blog](https://yalantis.com/blog/uidynamics-uikit-or-opengl-3-types-of-ios-animations-for-the-star-wars/)
 
-##Requirements
-- iOS 8.0+
-- Xcode 7
-- Swift 2
+## Requirements
 
-##Installing with [CocoaPods](https://cocoapods.org)
+- iOS 8.0+
+- Xcode 9
+- Swift 3
+
+## Installing with [CocoaPods](https://cocoapods.org)
 
 ```ruby
 use_frameworks!
-pod 'StarWars', '~> 1.0'
+pod 'StarWars', '~> 2.0'
 ```
 
-##Usage
+## Usage
 
 At first, import StarWars:
+
 ```swift
 import StarWars
 ```
 
 Then just implement class of *UIViewControllerTransitioningDelegate* that will return our animation form method *animationControllerForDismissedController* and assign it to *transitioningDelegate* of viewController that you want to dismiss.
+
 ```swift
 override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     let destination = segue.destinationViewController

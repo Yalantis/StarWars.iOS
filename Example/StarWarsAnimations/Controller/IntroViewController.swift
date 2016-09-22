@@ -11,41 +11,39 @@ import StarWars
 
 class IntroViewController: UIViewController {
 
-    @IBOutlet
-    private var topContraint: NSLayoutConstraint!
+    @IBOutlet fileprivate var topContraint: NSLayoutConstraint!
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        topContraint.active = false
+        topContraint.isActive = false
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        UIView.animateWithDuration(1, animations: {
-            self.topContraint.active = true
+        UIView.animate(withDuration: 1) {
+            self.topContraint.isActive = true
             self.view.layoutIfNeeded()
-        })        
-    }
-    
-    @IBAction
-    func backToIntroViewContoller(segue: UIStoryboardSegue) { }
-    
-    @IBAction func setupYourProfileTapped(sender: ProfileButton) {
-        sender.animateTouchUpInside {
-            self.performSegueWithIdentifier("presentSettings", sender: sender)
         }
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    @IBAction func backToIntroViewContoller(_ segue: UIStoryboardSegue) { }
+    
+    @IBAction func setupYourProfileTapped(_ sender: ProfileButton) {
+        sender.animateTouchUpInside {
+            self.performSegue(withIdentifier: "presentSettings", sender: sender)
+        }
+    }
+    
+    override var prefersStatusBarHidden: Bool {
         return true
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destination = segue.destinationViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination
         destination.transitioningDelegate = self
         if let navigation = destination as? UINavigationController,
-            settings = navigation.topViewController as? MainSettingsViewController {
+            let settings = navigation.topViewController as? MainSettingsViewController {
                 settings.theme = .light
         }
     }
@@ -53,11 +51,9 @@ class IntroViewController: UIViewController {
 
 extension IntroViewController: UIViewControllerTransitioningDelegate {
     
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 //        return StarWarsUIDynamicAnimator()
 //        return StarWarsUIViewAnimator()
         return StarWarsGLAnimator()
-        
     }
 }

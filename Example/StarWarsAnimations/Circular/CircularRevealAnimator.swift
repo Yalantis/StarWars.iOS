@@ -5,17 +5,18 @@
 
 import QuartzCore
 
-private func SquareAroundCircle(center: CGPoint, radius: CGFloat) -> CGRect {
+private func SquareAroundCircle(_ center: CGPoint, radius: CGFloat) -> CGRect {
     assert(0 <= radius, "radius must be a positive value")
-    return CGRectInset(CGRect(origin: center, size: CGSizeZero), -radius, -radius)
+    return CGRect(origin: center, size: CGSize.zero).insetBy(dx: -radius, dy: -radius)
 }
 
 class CircularRevealAnimator {
-    var completion: () -> Void = {}
+    
+    var completion: (() -> Void)?
 
-    private let layer: CALayer
-    private let mask: CAShapeLayer
-    private let animation: CABasicAnimation
+    fileprivate let layer: CALayer
+    fileprivate let mask: CAShapeLayer
+    fileprivate let animation: CABasicAnimation
 
     var duration: CFTimeInterval {
         get { return animation.duration }
@@ -28,18 +29,18 @@ class CircularRevealAnimator {
     }
 
     init(layer: CALayer, center: CGPoint, startRadius: CGFloat, endRadius: CGFloat, invert: Bool = false) {
-        let startCirclePath = CGPathCreateWithEllipseInRect(SquareAroundCircle(center, radius: startRadius), UnsafePointer())
-        let endCirclePath = CGPathCreateWithEllipseInRect(SquareAroundCircle(center, radius: endRadius), UnsafePointer())
+        let startCirclePath = CGPath(ellipseIn: SquareAroundCircle(center, radius: startRadius), transform: nil)
+        let endCirclePath = CGPath(ellipseIn: SquareAroundCircle(center, radius: endRadius), transform: nil)
         
         var startPath = startCirclePath, endPath = endCirclePath
         if invert {
-            var path = CGPathCreateMutable()
-            CGPathAddRect(path, nil, layer.bounds)
-            CGPathAddPath(path, nil, startCirclePath)
+            var path = CGMutablePath()
+            path.addRect(layer.bounds)
+            path.addPath(startCirclePath)
             startPath = path
-            path = CGPathCreateMutable()
-            CGPathAddRect(path, nil, layer.bounds)
-            CGPathAddPath(path, nil, endCirclePath)
+            path = CGMutablePath()
+            path.addRect(layer.bounds)
+            path.addPath(endCirclePath)
             endPath = path
         }
         
@@ -54,7 +55,7 @@ class CircularRevealAnimator {
         animation.toValue = endPath
         animation.delegate = AnimationDelegate {
             layer.mask = nil
-            self.completion()
+            self.completion?()
             self.animation.delegate = nil
         }
     }
@@ -62,6 +63,6 @@ class CircularRevealAnimator {
     func start() {
         layer.mask = mask
         mask.frame = layer.bounds
-        mask.addAnimation(animation, forKey: "reveal")
+        mask.add(animation, forKey: "reveal")
     }
 }

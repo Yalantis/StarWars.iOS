@@ -10,12 +10,12 @@ import UIKit
 
 extension UIView {
     
-    func animateCircularWithDuration(duration: NSTimeInterval, center: CGPoint, revert: Bool = false, @noescape animations: () -> Void, completion: ((Bool) -> Void)? = nil) {
-        let snapshot = self.snapshotViewAfterScreenUpdates(false)
-        snapshot.frame = self.bounds
+    func animateCircular(withDuration duration: TimeInterval, center: CGPoint, revert: Bool = false, animations: () -> Void, completion: ((Bool) -> Void)? = nil) {
+        let snapshot = snapshotView(afterScreenUpdates: false)!
+        snapshot.frame = bounds
         self.addSubview(snapshot)
         
-        let center = self.convertPoint(center, toView: snapshot)
+        let center = convert(center, to: snapshot)
         let radius: CGFloat = {
             let x = max(center.x, frame.width - center.x)
             let y = max(center.y, frame.height - center.y)

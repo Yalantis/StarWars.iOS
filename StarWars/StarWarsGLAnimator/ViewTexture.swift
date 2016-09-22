@@ -31,22 +31,22 @@ class ViewTexture {
         }
     }
     
-    func renderView(view: UIView) {
-        let scale = UIScreen.mainScreen().scale
+    func render(view: UIView) {
+        let scale = UIScreen.main.scale
         width = GLsizei(view.layer.bounds.size.width * scale)
         height = GLsizei(view.layer.bounds.size.height * scale)
         
-        var texturePixelBuffer = [GLubyte](count: Int(height * width * 4), repeatedValue: 0)
+        var texturePixelBuffer = [GLubyte](repeating: 0, count: Int(height * width * 4))
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         
-        withUnsafeMutablePointer(&texturePixelBuffer[0]) { texturePixelBuffer in
-            let context = CGBitmapContextCreate(texturePixelBuffer,
-                Int(width), Int(height), 8, Int(width * 4), colorSpace,
-                CGImageAlphaInfo.PremultipliedLast.rawValue | CGBitmapInfo.ByteOrder32Big.rawValue)!
-            CGContextScaleCTM(context, scale, scale)
+        withUnsafeMutablePointer(to: &texturePixelBuffer[0]) { texturePixelBuffer in
+            let context = CGContext(data: texturePixelBuffer,
+                width: Int(width), height: Int(height), bitsPerComponent: 8, bytesPerRow: Int(width * 4), space: colorSpace,
+                bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue | CGBitmapInfo.byteOrder32Big.rawValue)!
+            context.scaleBy(x: scale, y: scale)
             
             UIGraphicsPushContext(context)
-            view.drawViewHierarchyInRect(view.layer.bounds, afterScreenUpdates: false)
+            view.drawHierarchy(in: view.layer.bounds, afterScreenUpdates: false)
             UIGraphicsPopContext()
             
             glBindTexture(GLenum(GL_TEXTURE_2D), name);
