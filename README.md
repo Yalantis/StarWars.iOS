@@ -66,7 +66,7 @@ P.S. We’re going to publish more awesomeness wrapped in code and a tutorial on
 
 	The MIT License (MIT)
 
-	Copyright © 2016 Yalantis
+	Copyright © 2017 Yalantis
 
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal
