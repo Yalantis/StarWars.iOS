@@ -69,7 +69,7 @@ class StarsOverlay: UIView {
         }
     }
     
-    func randomizeEmitterPosition() {
+    @objc func randomizeEmitterPosition() {
         let sizeWidth = max(bounds.width, bounds.height)
         let radius = CGFloat(arc4random()).truncatingRemainder(dividingBy: sizeWidth)
         emitter.emitterSize = CGSize(width: radius, height: radius)
