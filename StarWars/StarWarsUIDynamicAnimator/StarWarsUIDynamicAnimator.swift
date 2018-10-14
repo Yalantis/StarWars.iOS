@@ -27,7 +27,7 @@ open class StarWarsUIDynamicAnimator: NSObject, UIViewControllerAnimatedTransiti
         let toView = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!.view
         
         containerView.addSubview(toView!)
-        containerView.sendSubview(toBack: toView!)
+        containerView.sendSubviewToBack(toView!)
         
         let size = fromView!.frame.size
         
@@ -72,7 +72,7 @@ open class StarWarsUIDynamicAnimator: NSObject, UIViewControllerAnimatedTransiti
         self.transitionContext = transitionContext
     }
     
-    func completeTransition() {
+    @objc func completeTransition() {
         transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
     }
 }

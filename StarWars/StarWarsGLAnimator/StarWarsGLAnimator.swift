@@ -34,7 +34,7 @@ open class StarWarsGLAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let toView = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!.view
         
         containerView.addSubview(toView!)
-        containerView.sendSubview(toBack: toView!)
+        containerView.sendSubviewToBack(toView!)
         
         func randomFloatBetween(_ smallNumber: CGFloat, and bigNumber: CGFloat) -> Float {
             let diff = bigNumber - smallNumber
@@ -79,9 +79,9 @@ open class StarWarsGLAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         fromView?.removeFromSuperview()
         self.transitionContext = transitionContext
         
-        displayLink = CADisplayLink(target: self, selector: #selector(StarWarsGLAnimator.displayLinkTick(_:)))
+        displayLink = CADisplayLink(target: self, selector: #selector(StarWarsGLAnimator.displayLinkTick))
         displayLink.isPaused = false
-        displayLink.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
+        displayLink.add(to: .main, forMode:.common)
         
         self.startTransitionTime = Date.timeIntervalSinceReferenceDate        
     }
@@ -91,7 +91,7 @@ open class StarWarsGLAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         displayLink = nil
     }
     
-    func displayLinkTick(_ displayLink: CADisplayLink) {
+    @objc func displayLinkTick(_ displayLink: CADisplayLink) {
         if let lastUpdateTime = lastUpdateTime {
             let timeSinceLastUpdate = Date.timeIntervalSinceReferenceDate - lastUpdateTime
             self.lastUpdateTime = Date.timeIntervalSinceReferenceDate
