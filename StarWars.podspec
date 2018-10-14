@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "StarWars"
-  s.version      = "2.0"
+  s.version      = "2.1"
   s.summary      = "This component implements transition animation to crumble view-controller into tiny pieces"
 
   s.homepage     = "https://yalantis.com/blog/uidynamics-uikit-or-opengl-3-types-of-ios-animations-for-the-star-wars/"
