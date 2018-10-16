@@ -91,7 +91,7 @@ open class StarWarsGLAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         displayLink = nil
     }
     
-    func displayLinkTick(_ displayLink: CADisplayLink) {
+    @objc func displayLinkTick(_ displayLink: CADisplayLink) {
         if let lastUpdateTime = lastUpdateTime {
             let timeSinceLastUpdate = Date.timeIntervalSinceReferenceDate - lastUpdateTime
             self.lastUpdateTime = Date.timeIntervalSinceReferenceDate
