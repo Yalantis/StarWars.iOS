@@ -120,11 +120,11 @@
 		2A89D8961BD6633300A2C503 /* StarWars */ = {
 			isa = PBXGroup;
 			children = (
-				2A89D8A21BD6639700A2C503 /* StarWarsGLAnimator */,
-				2A89D8B01BD663BD00A2C503 /* StarWarsUIViewAnimator */,
-				2A89D8AD1BD663A600A2C503 /* StarWarsUIDynamicAnimator */,
-				2A89D8971BD6633300A2C503 /* StarWars.h */,
 				2A89D8991BD6633300A2C503 /* Info.plist */,
+				2A89D8971BD6633300A2C503 /* StarWars.h */,
+				2A89D8A21BD6639700A2C503 /* StarWarsGLAnimator */,
+				2A89D8AD1BD663A600A2C503 /* StarWarsUIDynamicAnimator */,
+				2A89D8B01BD663BD00A2C503 /* StarWarsUIViewAnimator */,
 			);
 			path = StarWars;
 			sourceTree = "<group>";
@@ -232,17 +232,17 @@
 		2ACECE391BA2BF2E005689AD /* StarWarsDemo */ = {
 			isa = PBXGroup;
 			children = (
-				2A977CAB1BC55CE60038BE80 /* Controller */,
-				2A977CBB1BC55D380038BE80 /* ViewModel */,
-				2A977CBA1BC55D1C0038BE80 /* View */,
-				2A977CB71BC55D0F0038BE80 /* Misc */,
-				2A977CB01BC55CFA0038BE80 /* Extension */,
-				2A977C981BC55CB20038BE80 /* Circular Animation */,
-				2A6955691BB584EF009AB18A /* Resources */,
-				2ACECE3E1BA2BF2E005689AD /* Main.storyboard */,
 				2ACECE411BA2BF2E005689AD /* Assets.xcassets */,
-				2ACECE431BA2BF2E005689AD /* LaunchScreen.storyboard */,
+				2A977C981BC55CB20038BE80 /* Circular Animation */,
+				2A977CAB1BC55CE60038BE80 /* Controller */,
+				2A977CB01BC55CFA0038BE80 /* Extension */,
 				2ACECE461BA2BF2E005689AD /* Info.plist */,
+				2ACECE431BA2BF2E005689AD /* LaunchScreen.storyboard */,
+				2ACECE3E1BA2BF2E005689AD /* Main.storyboard */,
+				2A977CB71BC55D0F0038BE80 /* Misc */,
+				2A6955691BB584EF009AB18A /* Resources */,
+				2A977CBA1BC55D1C0038BE80 /* View */,
+				2A977CBB1BC55D380038BE80 /* ViewModel */,
 			);
 			name = StarWarsDemo;
 			path = StarWarsAnimations;
