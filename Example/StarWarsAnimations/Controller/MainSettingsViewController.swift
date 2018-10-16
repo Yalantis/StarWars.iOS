@@ -29,8 +29,8 @@ class MainSettingsViewController: UIViewController {
         navigationController!.navigationBar.shadowImage = UIImage()
         navigationController!.navigationBar.isTranslucent = true
         navigationController!.navigationBar.titleTextAttributes = [
-            NSFontAttributeName: UIFont(name: "GothamPro", size: 20)!,
-            NSForegroundColorAttributeName: UIColor.white
+            NSAttributedStringKey.font: UIFont(name: "GothamPro", size: 20)!,
+            NSAttributedStringKey.foregroundColor: UIColor.white
         ]
     }
     

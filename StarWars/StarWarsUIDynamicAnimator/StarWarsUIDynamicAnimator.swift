@@ -72,7 +72,7 @@ open class StarWarsUIDynamicAnimator: NSObject, UIViewControllerAnimatedTransiti
         self.transitionContext = transitionContext
     }
     
-    func completeTransition() {
+    @objc func completeTransition() {
         transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
     }
 }
