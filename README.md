@@ -36,12 +36,12 @@ Then just implement class of *UIViewControllerTransitioningDelegate* that will r
 
 ```swift
 override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-let destination = segue.destinationViewController
-destination.transitioningDelegate = self
+	let destination = segue.destinationViewController
+	destination.transitioningDelegate = self
 }
 
 func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-return StarWarsGLAnimator()
+	return StarWarsGLAnimator()
 }
 ```
 
