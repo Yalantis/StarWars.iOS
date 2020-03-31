@@ -42,6 +42,9 @@ class IntroViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination
         destination.transitioningDelegate = self
+        if #available(iOS 13.0, *) {
+            destination.modalPresentationStyle = .fullScreen
+        }
         if let navigation = destination as? UINavigationController,
             let settings = navigation.topViewController as? MainSettingsViewController {
                 settings.theme = .light
