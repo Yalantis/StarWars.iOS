@@ -36,12 +36,12 @@ Then just implement class of *UIViewControllerTransitioningDelegate* that will r
 
 ```swift
 override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-let destination = segue.destinationViewController
-destination.transitioningDelegate = self
+    let destination = segue.destinationViewController
+    destination.transitioningDelegate = self
 }
 
 func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-return StarWarsGLAnimator()
+    return StarWarsGLAnimator()
 }
 ```
 
@@ -67,6 +67,7 @@ P.S. We’re going to publish more awesomeness wrapped in code and a tutorial on
 - `1.0` Swift 2.0
 - `2.0` Adds Swift 3.0 support
 - `3.0` Adds Swift 4.0 support
+- `4.0` Adds Swift 5.0 support
 
 ## License
 
