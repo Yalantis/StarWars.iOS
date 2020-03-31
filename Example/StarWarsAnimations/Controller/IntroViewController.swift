@@ -52,8 +52,8 @@ class IntroViewController: UIViewController {
 extension IntroViewController: UIViewControllerTransitioningDelegate {
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        return StarWarsUIDynamicAnimator()
-//        return StarWarsUIViewAnimator()
-        return StarWarsGLAnimator()
+//        StarWarsUIDynamicAnimator()
+//        StarWarsUIViewAnimator()
+        StarWarsGLAnimator()
     }
 }

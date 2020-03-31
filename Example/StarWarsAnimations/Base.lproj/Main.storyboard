@@ -1,59 +1,46 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B17c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="GothaProReg.otf">
+        <array key="GothaProReg.otf">
             <string>GothamPro</string>
-            <string>GothamPro</string>
-            <string>GothamPro</string>
-            <string>GothamPro</string>
-            <string>GothamPro</string>
-            <string>GothamPro</string>
-            <string>GothamPro</string>
-            <string>GothamPro</string>
-            <string>GothamPro</string>
-            <string>GothamPro</string>
-            <string>GothamPro</string>
-            <string>GothamPro</string>
-            <string>GothamPro</string>
-        </mutableArray>
+        </array>
     </customFonts>
     <scenes>
         <!--Intro View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="IntroViewController" customModule="StarWarsAnimations" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="IntroViewController" customModule="StarWarsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rWS-E3-pbL" customClass="StarsOverlay" customModule="StarWarsAnimations" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rWS-E3-pbL" customClass="StarsOverlay" customModule="StarWarsDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GREETINGS," textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQj-6G-9Os">
-                                        <rect key="frame" x="241" y="312" width="119" height="17"/>
-                                        <animations/>
+                                        <rect key="frame" x="151" y="312" width="112.5" height="22.5"/>
                                         <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="19"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Vb-FN-ASS" customClass="ProfileButton" customModule="StarWarsAnimations" customModuleProvider="target">
-                                        <rect key="frame" x="203" y="395" width="193" height="54"/>
-                                        <animations/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Vb-FN-ASS" customClass="ProfileButton" customModule="StarWarsDemo" customModuleProvider="target">
+                                        <rect key="frame" x="118.5" y="400.5" width="177" height="54"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="54" id="nDV-rI-QIX"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="16"/>
                                         <state key="normal" title="Setup your profile">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -63,7 +50,7 @@
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="1" green="0.90980392156862744" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="value" red="1" green="0.90980392156862744" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -71,24 +58,20 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_wars_logo" translatesAutoresizingMaskIntoConstraints="NO" id="TdW-UN-Xbt">
-                                        <rect key="frame" x="175" y="133" width="250" height="107"/>
-                                        <animations/>
+                                        <rect key="frame" x="82" y="133" width="250" height="107"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTc-ZA-IaV">
                                         <rect key="frame" x="15" y="23" width="21" height="22"/>
-                                        <animations/>
                                         <state key="normal" image="Menu_icn"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY YOUNG PADAWAN!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uK8-iR-wb1">
-                                        <rect key="frame" x="200.5" y="337" width="200" height="23"/>
-                                        <animations/>
+                                        <rect key="frame" x="107" y="342.5" width="200" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <animations/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="6Vb-FN-ASS" firstAttribute="top" secondItem="uK8-iR-wb1" secondAttribute="bottom" constant="35" id="2Uj-wg-gqh"/>
                                     <constraint firstItem="TdW-UN-Xbt" firstAttribute="top" secondItem="rWS-E3-pbL" secondAttribute="top" constant="133" id="3OS-2P-oob"/>
@@ -104,8 +87,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <animations/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="rWS-E3-pbL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="iwY-rP-GX3"/>
                             <constraint firstItem="rWS-E3-pbL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lxs-jw-CLl"/>
@@ -125,40 +107,37 @@
         <!--Settings-->
         <scene sceneID="el1-jX-cKp">
             <objects>
-                <viewController id="XQ3-X4-4Qd" customClass="MainSettingsViewController" customModule="StarWarsAnimations" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XQ3-X4-4Qd" customClass="MainSettingsViewController" customModule="StarWarsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wUz-H3-Pff"/>
                         <viewControllerLayoutGuide type="bottom" id="em2-Yx-5Na"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="z8H-UB-TWC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ncf-Xp-ziN">
-                                <rect key="frame" x="0.0" y="541" width="600" height="59"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.0078431372549019607" green="0.53333333333333333" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="0.0" y="749" width="414" height="59"/>
+                                <color key="backgroundColor" red="0.0078431372549019607" green="0.53333333333333333" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59" id="a4q-Cc-k3L"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="17"/>
                                 <state key="normal" title="Save">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="S4H-HD-wvC" kind="unwind" unwindAction="backToIntroViewContoller:" id="lS1-Ha-jbE"/>
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Jv-1z-IP9">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="541"/>
-                                <animations/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="749"/>
                                 <connections>
                                     <segue destination="Epc-Ak-XXg" kind="embed" id="SdM-Gi-eup"/>
                                 </connections>
                             </containerView>
                         </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2Jv-1z-IP9" firstAttribute="leading" secondItem="z8H-UB-TWC" secondAttribute="leading" id="0FG-pm-Suj"/>
                             <constraint firstItem="Ncf-Xp-ziN" firstAttribute="leading" secondItem="z8H-UB-TWC" secondAttribute="leading" id="7bX-dD-SOD"/>
@@ -189,47 +168,42 @@
         <!--Settings View Controller-->
         <scene sceneID="13V-Pc-1oT">
             <objects>
-                <tableViewController id="Epc-Ak-XXg" customClass="SettingsViewController" customModule="StarWarsAnimations" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Epc-Ak-XXg" customClass="SettingsViewController" customModule="StarWarsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="46" sectionHeaderHeight="28" sectionFooterHeight="28" id="gBx-he-Qan">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="541"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="749"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" red="0.1450980392" green="0.15686274510000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="separatorColor" red="0.12156862745098039" green="0.11372549019607843" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.1450980392" green="0.15686274510000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" red="0.12156862745098039" green="0.11372549019607843" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="separatorInset" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="Ecz-eR-85I">
-                            <rect key="frame" x="0.0" y="299" width="600" height="0.0"/>
+                            <rect key="frame" x="0.0" y="355" width="414" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <animations/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <sections>
                             <tableViewSection id="eQR-I1-G0T">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="46" id="v9h-uq-Cqq">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="46"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v9h-uq-Cqq" id="Ez9-la-FOh">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="45.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="46"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DARK SIDE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7To-V3-eaI">
                                                     <rect key="frame" x="30" y="20.5" width="68" height="11"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="12"/>
-                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5K4-VA-sni">
-                                                    <rect key="frame" x="521" y="7" width="51" height="31"/>
-                                                    <animations/>
-                                                    <color key="onTintColor" red="0.93725490196078431" green="0.32549019607843138" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <rect key="frame" x="521" y="7.5" width="51" height="31"/>
+                                                    <color key="onTintColor" red="0.93725490196078431" green="0.32549019607843138" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
                                                         <action selector="darkSideChanged:" destination="Epc-Ak-XXg" eventType="valueChanged" id="t6o-k6-rY4"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="5K4-VA-sni" firstAttribute="centerY" secondItem="Ez9-la-FOh" secondAttribute="centerY" id="5GA-we-ski"/>
                                                 <constraint firstItem="7To-V3-eaI" firstAttribute="leading" secondItem="Ez9-la-FOh" secondAttribute="leadingMargin" id="8nT-Ec-KA3"/>
@@ -239,31 +213,27 @@
                                             </constraints>
                                             <edgeInsets key="layoutMargins" top="8" left="30" bottom="8" right="30"/>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="69" id="zGi-xf-dXb">
-                                        <rect key="frame" x="0.0" y="46" width="600" height="69"/>
+                                        <rect key="frame" x="0.0" y="74" width="414" height="69"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zGi-xf-dXb" id="w0B-hL-EGP">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="68.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FULL NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hr9-JD-wla">
-                                                    <rect key="frame" x="30" y="20" width="73" height="11"/>
-                                                    <animations/>
+                                                    <rect key="frame" x="30" y="23" width="73" height="11"/>
                                                     <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="12"/>
-                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anakin Skywalker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CV1-K3-KRS">
-                                                    <rect key="frame" x="30" y="41" width="148.5" height="15.5"/>
-                                                    <animations/>
+                                                    <rect key="frame" x="30" y="44" width="148.5" height="15.5"/>
                                                     <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="17"/>
-                                                    <color key="textColor" red="0.33333333329999998" green="0.37647058820000001" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.33333333329999998" green="0.37647058820000001" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="hr9-JD-wla" firstAttribute="leading" secondItem="w0B-hL-EGP" secondAttribute="leadingMargin" id="1fh-uj-wYN"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="hr9-JD-wla" secondAttribute="trailing" id="G2Y-jD-aEm"/>
@@ -274,31 +244,27 @@
                                             </constraints>
                                             <edgeInsets key="layoutMargins" top="8" left="30" bottom="8" right="30"/>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="69" id="6Rt-8Q-ZmM">
-                                        <rect key="frame" x="0.0" y="115" width="600" height="69"/>
+                                        <rect key="frame" x="0.0" y="143" width="414" height="69"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Rt-8Q-ZmM" id="M27-xW-PzA">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="68.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOMEWORLD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqj-EL-iqf">
-                                                    <rect key="frame" x="30" y="20" width="86.5" height="11"/>
-                                                    <animations/>
+                                                    <rect key="frame" x="30" y="23" width="86.5" height="11"/>
                                                     <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="12"/>
-                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tatooine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7r-rD-gU1">
-                                                    <rect key="frame" x="30" y="41" width="72.5" height="15.5"/>
-                                                    <animations/>
+                                                    <rect key="frame" x="30" y="44" width="72.5" height="15.5"/>
                                                     <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="17"/>
-                                                    <color key="textColor" red="0.33333333329999998" green="0.37647058820000001" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.33333333329999998" green="0.37647058820000001" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="yqj-EL-iqf" firstAttribute="top" secondItem="M27-xW-PzA" secondAttribute="topMargin" constant="12" id="1ZO-Mb-QeT"/>
                                                 <constraint firstItem="A7r-rD-gU1" firstAttribute="leading" secondItem="M27-xW-PzA" secondAttribute="leadingMargin" id="M6I-sx-w6O"/>
@@ -309,31 +275,27 @@
                                             </constraints>
                                             <edgeInsets key="layoutMargins" top="8" left="30" bottom="8" right="30"/>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="69" id="scM-h8-Lq2">
-                                        <rect key="frame" x="0.0" y="184" width="600" height="69"/>
+                                        <rect key="frame" x="0.0" y="212" width="414" height="69"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="scM-h8-Lq2" id="5Mx-26-KaV">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="68.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BIRTHDAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syb-qL-0Zp">
-                                                    <rect key="frame" x="30" y="20" width="63.5" height="11"/>
-                                                    <animations/>
+                                                    <rect key="frame" x="30" y="23" width="63.5" height="11"/>
                                                     <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="12"/>
-                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="46.9 BBY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMz-uv-0qr">
-                                                    <rect key="frame" x="30" y="41" width="79" height="15.5"/>
-                                                    <animations/>
+                                                    <rect key="frame" x="30" y="44" width="79" height="15.5"/>
                                                     <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="17"/>
-                                                    <color key="textColor" red="0.33333333329999998" green="0.37647058820000001" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.33333333329999998" green="0.37647058820000001" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="CMz-uv-0qr" secondAttribute="trailing" id="5bh-Wo-Wuo"/>
                                                 <constraint firstItem="syb-qL-0Zp" firstAttribute="leading" secondItem="5Mx-26-KaV" secondAttribute="leadingMargin" id="Dn1-R9-ZLy"/>
@@ -344,46 +306,39 @@
                                             </constraints>
                                             <edgeInsets key="layoutMargins" top="8" left="30" bottom="8" right="30"/>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="46" id="vpj-cL-3pe">
-                                        <rect key="frame" x="0.0" y="253" width="600" height="46"/>
+                                        <rect key="frame" x="0.0" y="281" width="414" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vpj-cL-3pe" id="XTR-68-XC6">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="45.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="46"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GENDER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXe-kW-Jp4">
                                                     <rect key="frame" x="30" y="20.5" width="53.5" height="11"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="12"/>
-                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Radio-light_Inactive" translatesAutoresizingMaskIntoConstraints="NO" id="GLf-uk-fBq">
                                                     <rect key="frame" x="402" y="19.5" width="10" height="10"/>
-                                                    <animations/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Radio-light_Active" translatesAutoresizingMaskIntoConstraints="NO" id="d6H-A2-ph3">
                                                     <rect key="frame" x="510.5" y="19.5" width="10" height="10"/>
-                                                    <animations/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Male" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIo-6h-ry0">
-                                                    <rect key="frame" x="528.5" y="17" width="41.5" height="16.5"/>
-                                                    <animations/>
+                                                    <rect key="frame" x="528.5" y="16.5" width="41.5" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="18"/>
-                                                    <color key="textColor" red="0.33333333333333331" green="0.37647058823529411" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.33333333333333331" green="0.37647058823529411" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Female" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIk-VF-emv">
-                                                    <rect key="frame" x="420" y="17" width="65.5" height="16.5"/>
-                                                    <animations/>
+                                                    <rect key="frame" x="420" y="16.5" width="65.5" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="18"/>
-                                                    <color key="textColor" red="0.33333333329999998" green="0.37647058820000001" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.33333333329999998" green="0.37647058820000001" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="yIo-6h-ry0" firstAttribute="leading" secondItem="d6H-A2-ph3" secondAttribute="trailing" constant="8" id="471-hf-g2D"/>
                                                 <constraint firstItem="d6H-A2-ph3" firstAttribute="baseline" secondItem="yIo-6h-ry0" secondAttribute="baseline" id="5Rt-x5-guv"/>
@@ -399,7 +354,6 @@
                                             </constraints>
                                             <edgeInsets key="layoutMargins" top="8" left="30" bottom="8" right="30"/>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -440,11 +394,9 @@
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Photo_light" translatesAutoresizingMaskIntoConstraints="NO" id="xdM-qf-p0h">
                                     <rect key="frame" x="20" y="20" width="238" height="497"/>
-                                    <animations/>
                                 </imageView>
                             </subviews>
-                            <animations/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="xdM-qf-p0h" firstAttribute="top" secondItem="Kdy-B8-YbC" secondAttribute="top" id="8q4-Hp-xob"/>
                                 <constraint firstItem="xdM-qf-p0h" firstAttribute="centerX" secondItem="Kdy-B8-YbC" secondAttribute="centerX" id="ET4-Q9-U4o"/>
@@ -453,8 +405,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <animations/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Kdy-B8-YbC" secondAttribute="trailing" id="q9U-fT-K00"/>
                         <constraint firstItem="Kdy-B8-YbC" firstAttribute="top" secondItem="7lG-lt-epx" secondAttribute="top" id="ruK-DZ-aKp"/>
@@ -470,12 +421,11 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3hn-t5-S8W" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="A9X-hy-Up3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>

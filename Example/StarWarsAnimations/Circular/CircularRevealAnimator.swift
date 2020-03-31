@@ -48,7 +48,7 @@ class CircularRevealAnimator {
 
         mask = CAShapeLayer()
         mask.path = endPath
-        mask.fillRule = kCAFillRuleEvenOdd
+        mask.fillRule = CAShapeLayerFillRule.evenOdd
 
         animation = CABasicAnimation(keyPath: "path")
         animation.fromValue = startPath
