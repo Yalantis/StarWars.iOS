@@ -23,7 +23,7 @@ open class StarWarsUIViewAnimator: NSObject, UIViewControllerAnimatedTransitioni
         let toView = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!.view
         
         containerView.addSubview(toView!)
-        containerView.sendSubview(toBack: toView!)
+        containerView.sendSubviewToBack(toView!)
         
         var snapshots:[UIView] = []
         let size = fromView?.frame.size
@@ -52,13 +52,13 @@ open class StarWarsUIViewAnimator: NSObject, UIViewControllerAnimatedTransitioni
             }
         }
     
-        containerView.sendSubview(toBack: fromView!)
+        containerView.sendSubviewToBack(fromView!)
         
         UIView.animate(
             withDuration:
             duration,
             delay: 0,
-            options: UIViewAnimationOptions.curveLinear,
+            options: UIView.AnimationOptions.curveLinear,
             animations: {
                 for view in snapshots {
                     let xOffset = randomFloatBetween(-200 , and: 200)
